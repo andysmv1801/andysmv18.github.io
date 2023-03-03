@@ -47,9 +47,9 @@ crossorigin="anonymous">
     </div>
 
     <h2><p class="text-danger fw-bold"> Busqueda de información </p></h2>
-    <form action="https://friends.fandom.com/wiki/Friends_Wiki" method="get">
+    <form id="buscador" action="https://friends.fandom.com/wiki/Friends_Wiki" method="get">
         <label for="q">Buscar en wiki Friends:</label>
-        <input type="text" name="q" id="q" required>
+        <input id="buscar" type="text" name="q" id="q" required>
         <select name="tema" id="tema">
             <option value="text">text</option>
             <!----->
@@ -60,13 +60,13 @@ crossorigin="anonymous">
 
     </figure>
     <h2><p class="text-danger fw-bold">Personajes </p></h2>
-    <ul>
-        <li class="list-group-item list-group-item-info">Chandler</li>
-        <li class="list-group-item list-group-item-info">Monica</li>
-        <li class="list-group-item list-group-item-info">Ross</li>
-        <li class="list-group-item list-group-item-info">Joey</li>
-        <li class="list-group-item list-group-item-info">Rachel</li>
-        <li class="list-group-item list-group-item-info">Phoebe</li>
+    <ul id="personas">
+        <li class="list-group-item list-group-item-info" id="Chandler">Chandler</li>
+        <li class="list-group-item list-group-item-info" id="Monica">Monica</li>
+        <li class="list-group-item list-group-item-info" id="Ross">Ross</li>
+        <li class="list-group-item list-group-item-info" id="Joey">Joey</li>
+        <li class="list-group-item list-group-item-info" id="Rachel">Rachel</li>
+        <li class="list-group-item list-group-item-info" id="Phoebe">Phoebe</li>
     </ul>
 
     <h2><p class="text-danger fw-bold">Capitulos favoritos</p></h2>
@@ -79,7 +79,7 @@ crossorigin="anonymous">
     </ol>
 
     <h2><p class="text-danger fw-bold">Friends: temporadas y capitulos</p></h2>
-    <table class="table table-bordered table-warning">
+    <table id="tabla" class="table table-bordered table-warning">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Temporada</th>
@@ -156,6 +156,23 @@ mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="a
   alert("Se mostro en consola la fecha la cual es: " + time)
   
   function saludar(nombre){ alert("Hola " + nombre)}
+
+  var nuevoPersonaje = document.createElement("Gunther");
+  personas.appendChild(nuevoPersonaje);
+  personas.removeChild(nuevoPersonaje);
+
+  var verPersonajes = document.getElementById("personas");
+  var mejorPersonaje = document.getElementsByTagName("Chandler");
+  console.log(verPersonajes.firstChild)
+ 
+  var verRachel = verPersonajes.getAttribute("Rachel");
+  verPersonajes.setAttribute("mejorPersonaje", "El mejor Chandler");
+  
+  var checarForma = document.forms["buscador"]["buscar"];
+  alert(checarForma.checked)
+
+  verPersonajes.innerHTML = "<h1><p> Ya deberias saberlos! </p><h1>";
+  
   </script>
 </body>
 </html>
